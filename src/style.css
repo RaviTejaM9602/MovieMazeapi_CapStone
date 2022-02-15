@@ -15,3 +15,10 @@ main {
 #logo{
   width:5rem;
 }
+
+.container-footer p{
+  width: 95%;
+  margin: auto;
+  color: rgb(72, 46, 218);
+  padding: 2% 0;
+}
