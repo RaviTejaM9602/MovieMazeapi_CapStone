@@ -8,7 +8,7 @@ const movies_no=10;
 
 document.addEventListener('click', (e) => {
   if (e.target.matches('.comment-btn')) {
-    showCommentPopup(1);
+    showCommentPopup(e.target.id);
   }
 });
 

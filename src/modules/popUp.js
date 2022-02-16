@@ -1,8 +1,7 @@
 const movieApi = 'https://api.tvmaze.com/shows';
-const movieId = 'qdmdFHstOSTgqs8wmesu';
 
 const getMovieData = async (movieId) => {
-  const response = await fetch(`${movieApi}/${movieId}`);
+  const response = await fetch(`${movieApi}/${qdmdFHstOSTgqs8wmesu}`);
   const data = await response.json();
   return data;
 };
@@ -68,10 +67,9 @@ const showCommentPopup = async (movieId) => {
   commentPopup.style.display = 'block';
   };
 
-let id = 1;
 document.addEventListener('click', async (e) => {
   if (e.target.matches('.comment-btn')) {
-    showCommentPopup(id);
+    showCommentPopup(e.target.id);
   }
 });
 
