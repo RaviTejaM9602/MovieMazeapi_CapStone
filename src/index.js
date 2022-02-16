@@ -1,7 +1,16 @@
-import './style.css'
+import "./style.css";
+import showCommentPopup from './modules/popUp.js';
+
 
 const List = document.querySelector('#movies');
 const movies_no=10;
+
+
+document.addEventListener('click', (e) => {
+  if (e.target.matches('.comment-btn')) {
+    showCommentPopup(e.target.id);
+  }
+});
 
 const fetchMovies = async ()=>{
   for (let i = 1; i <=10; i++) {
@@ -33,7 +42,6 @@ List.innerHTML += `<li class="movie">
 <i id=${movie.id} class="fas fa-heart"></i>
 </div>
 </div>
-<button type="button" id=${movie.id} class="comments">Comments</button>
+<button type="button" id=${movie.id} class="comment-btn">Comments</button>
 </li>`;
 }
-
