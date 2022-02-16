@@ -1,7 +1,13 @@
-import './style.css'
+import './style.css';
+import logo from './logo.png';
+
+
 
 const List = document.querySelector('#movies');
+const LogoContainer = document.querySelector("#logo");
 const movies_no=10;
+
+LogoContainer.innerHTML = `<a href="#"><img class="logoImg" src="${logo}" alt="Logo" /></a>`;
 
 const fetchMovies = async ()=>{
   for (let i = 1; i <=10; i++) {
