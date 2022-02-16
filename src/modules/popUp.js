@@ -1,9 +1,34 @@
 const movieApi = 'https://api.tvmaze.com/shows';
+const movieId = 'qdmdFHstOSTgqs8wmesu';
 
 const getMovieData = async (movieId) => {
-  const response = await fetch(`${movieApi}/${qdmdFHstOSTgqs8wmesu}`);
+  const response = await fetch(`${movieApi}/${movieId}`);
   const data = await response.json();
   return data;
+};
+
+const commentsApiKey = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/qdmdFHstOSTgqs8wmesu/comments';
+const getMovieComment = async (movieId) => {
+  const response = await fetch(`${commentsApiKey}?item_id=${movieId}`);
+  return response.json();
+};
+
+const displayMovieComments = (data) => {
+  commentPopup.querySelector('.comments-box').innerHTML = data;
+};
+
+const showComments = (movieId) => {
+  getMovieComment(movieId).then((data) => {
+    if (!data.error) {
+      let comments = '';
+      data.forEach((comment) => {
+        comments += `<li class="comments-list">${comment.creation_date} <span> ${comment.username}:</span>  ${comment.comment}</li>`;
+      });
+      displayMovieComments(comments);
+    } else {
+      displayMovieComments('No comment posted yet.');
+    }
+  });
 };
 
 const commentPopup = document.querySelector('.comment-popup');
@@ -30,7 +55,7 @@ const showCommentPopup = async (movieId) => {
       <div class="comment-container">
         <div class="comment-display">
           <h3 class='counter'>Comments(<span class="total-comments">0</span>)</h3>
-          <ul class="comments">
+          <ul class="comments-box">
           </ul>
         </div>
         <div class="comment-box">
@@ -48,6 +73,7 @@ const showCommentPopup = async (movieId) => {
     </div>
   </div>`;
 
+  showComments(movieId);
 
 
     const form = commentPopup.querySelector('.form');
