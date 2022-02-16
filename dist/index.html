@@ -3,20 +3,22 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- <link rel="stylesheet" href="style.css" /> -->
-    <title>Wbpack Exercise</title>
-    <script defer src="index.bundle.js"></script>
-  </head>
+    <link rel="stylesheet" href="style.css" />
+    <title>Pokemon_DB</title>
+  <script defer src="index.bundle.js"></script></head>
 
   <body>
     <header>
       <nav>
-        <img src="Pokemon_logo.svg" alt="pokemon logo" id="logo" />
+        <img src="./Pokemon_logo.png" alt="pokemon logo" id="logo" />
       </nav>
     </header>
     <main>
-      <div id="Pokemons"></div>
+      <button data-modal-target="#modal" class="comment-btn">Comment</button>
     </main>
+
+    <section class="commentPopup" id="modal"></section>
+
     <footer>
       <hr />
       <div class="container-footer">
@@ -27,5 +29,6 @@
         </p>
       </div>
     </footer>
+    <script defer="defer" src="index.js"></script>
   </body>
 </html>
