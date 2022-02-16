@@ -1,5 +1,23 @@
+const commentApiEndpoint = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/dLRWdvDoWjaapH1JgaCf/comments';
 const movieApi = 'https://api.tvmaze.com/shows';
 const movieId = 'qdmdFHstOSTgqs8wmesu';
+
+const post = (url, params = {}) => fetch(url, {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify(params),
+}).then((res) => res.text())
+  .then((data) => (data.error
+    ? { error: true, info: data }
+    : { error: false, info: data }))
+  .catch((error) => ({ error: true, info: error }));
+
+const addComment = async (params) => {
+  const response = await post(commentApiEndpoint, params);
+  return response;
+};
 
 const getMovieData = async (movieId) => {
   const response = await fetch(`${movieApi}/${movieId}`);
@@ -76,22 +94,25 @@ const showCommentPopup = async (movieId) => {
   showComments(movieId);
 
 
-    const form = commentPopup.querySelector('.form');
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const user = form.elements.name.value;
-      const description = form.elements.description.value;
-      addComment({
-        item_id: movieId,
-        username: user,
-        comment: description,
-      }).then(() => {
-        form.reset();
-      });
+  const form = commentPopup.querySelector('.form');
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const user = form.elements.name.value;
+    const description = form.elements.description.value;
+    addComment({
+      item_id: movieId,
+      username: user,
+      comment: description,
+    }).then(() => {
+      showComments(movieId);
+      updateCommentCounter(movieId);
+      form.reset();
     });
   });
-  commentPopup.style.display = 'block';
-  };
+});
+commentPopup.style.display = 'block';
+closeCommentPopup();
+}
 
 document.addEventListener('click', async (e) => {
   if (e.target.matches('.comment-btn')) {

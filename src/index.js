@@ -23,7 +23,6 @@ const fetchMovies = async ()=>{
   const url = `https://api.tvmaze.com/shows/${id}`;
   const res = await fetch(url);
    const movie = await res.json();
-   console.log(movie);
    createMovieCard(movie);
    }catch (error){ 
      console.error(error);
