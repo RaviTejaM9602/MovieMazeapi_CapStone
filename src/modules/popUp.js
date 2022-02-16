@@ -1,6 +1,32 @@
-const commentApiEndpoint = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/dLRWdvDoWjaapH1JgaCf/comments';
+const commentCounter = (data) => (typeof (data) === 'object' ? data.length : 'invalid');
+
+const commentsApiKey = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/qdmdFHstOSTgqs8wmesu/comments';
+const getMovieComment = async (movieId) => {
+  const response = await fetch(`${commentsApiKey}?item_id=${movieId}`);
+  return response.json();
+};
+
+const commentPopup = document.querySelector('.comment-popup');
+const getTotalComments = async (movieId) => {
+  const result = await getMovieComment(movieId)
+    .then((comment) => (!comment.error ? comment.length : 0))
+    .catch(() => 0);
+  return result;
+};
+
+const updateCommentCounter = (movieId) => {
+  getTotalComments(movieId).then((totalComment) => {
+    commentPopup.querySelector('.total-comments').innerHTML = totalComment;
+  });
+};
+
+const commentApiEndpoint = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/qdmdFHstOSTgqs8wmesu/comments';
 const movieApi = 'https://api.tvmaze.com/shows';
-const movieId = 'qdmdFHstOSTgqs8wmesu';
+
+const get = (url) => fetch(url)
+  .then((res) => res.json())
+  .then((data) => data)
+  .catch((error) => error);
 
 const post = (url, params = {}) => fetch(url, {
   method: 'POST',
@@ -20,15 +46,8 @@ const addComment = async (params) => {
 };
 
 const getMovieData = async (movieId) => {
-  const response = await fetch(`${movieApi}/${movieId}`);
-  const data = await response.json();
-  return data;
-};
-
-const commentsApiKey = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/qdmdFHstOSTgqs8wmesu/comments';
-const getMovieComment = async (movieId) => {
-  const response = await fetch(`${commentsApiKey}?item_id=${movieId}`);
-  return response.json();
+  const response = await get(`${movieApi}/${movieId}`);
+  return response;
 };
 
 const displayMovieComments = (data) => {
@@ -49,7 +68,13 @@ const showComments = (movieId) => {
   });
 };
 
-const commentPopup = document.querySelector('.comment-popup');
+const closeCommentPopup = () => {
+  document.querySelector('#close').addEventListener('click', () => {
+    commentPopup.style.display = 'none';
+    commentPopup.innerHTML = '';
+    document.body.style.overflow = 'visible';
+  });
+};
 
 const showCommentPopup = async (movieId) => {
   await getMovieData(movieId).then((data) => {
@@ -58,17 +83,17 @@ const showCommentPopup = async (movieId) => {
     <div class="container">     
         <div class="display">
           <div class="description">
-          <img src=${data.image.medium} alt="Movie image">
+            <img class="popup-image" src=${data.image.medium} alt="Movie image">
             <h3 class="movie-title">${data.name}</h3>
           </div>
           <div class="display-detail">
             <h3>More about the Movie</h3>
-           <ul>
+            <ul class="popup-list">
              <li>${data.summary}</li> 
              <li><strong>Date of Release:</strong> ${data.premiered}</li>
-             <li><strong>Genres:</strong> ${data.genres}</li>               
-           </ul>  
-          </div>
+             <li><strong>Genres:</strong>${data.genres}</li>               
+            </ul>  
+           </div>
         </div>
       <div class="comment-container">
         <div class="comment-display">
@@ -91,28 +116,28 @@ const showCommentPopup = async (movieId) => {
     </div>
   </div>`;
 
-  showComments(movieId);
+    updateCommentCounter(movieId);
+    showComments(movieId);
 
-
-  const form = commentPopup.querySelector('.form');
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const user = form.elements.name.value;
-    const description = form.elements.description.value;
-    addComment({
-      item_id: movieId,
-      username: user,
-      comment: description,
-    }).then(() => {
-      showComments(movieId);
-      updateCommentCounter(movieId);
-      form.reset();
+    const form = commentPopup.querySelector('.form');
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const user = form.elements.name.value;
+      const description = form.elements.description.value;
+      addComment({
+        item_id: movieId,
+        username: user,
+        comment: description,
+      }).then(() => {
+        showComments(movieId);
+        updateCommentCounter(movieId);
+        form.reset();
+      });
     });
   });
-});
-commentPopup.style.display = 'block';
-closeCommentPopup();
-}
+  commentPopup.style.display = 'block';
+  closeCommentPopup();
+};
 
 document.addEventListener('click', async (e) => {
   if (e.target.matches('.comment-btn')) {
@@ -120,4 +145,4 @@ document.addEventListener('click', async (e) => {
   }
 });
 
-export default showCommentPopup ;
+export default { showCommentPopup, commentCounter };
