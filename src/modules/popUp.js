@@ -34,7 +34,7 @@ const showCommentPopup = async (movieId) => {
           <ul class="comments">
           </ul>
         </div>
-        <div class="comment">
+        <div class="comment-box">
         <div class="add-comment">
           <h3>Add Comment</h3>
         </div>
