@@ -11,6 +11,10 @@ body {
   font-size: 16px;
 }
 
+h3 {
+  display: inline-block;
+}
+
 header {
   height: 100px;
   background-color: black;
@@ -29,7 +33,7 @@ header {
   height: 90%;
   overflow: auto;
   margin: auto;
-  background-color: rgb(76, 78, 82, 0.7);
+  background-color: rgba(74, 73, 108, 0.7);
   display: none;
 }
 
@@ -40,7 +44,7 @@ header {
   align-items: center;
   gap: 5px;
   padding: 20px;
-  background: #fff;
+  background: rgb(128, 155, 174);
   border-radius: 10px;
 }
 
@@ -108,7 +112,7 @@ textarea {
   font-size: 16px;
   letter-spacing: 2px;
   font-weight: 400 !important;
-  background-color: #e63946ff;
+  background-color: rgb(182, 68, 119);
   color: #fff;
   padding: 10px;
   border: none;
@@ -123,6 +127,7 @@ textarea {
 .comments-list {
   list-style: none;
   background: whitesmoke;
+  width: 100%;
 }
 
 .display-detail {
