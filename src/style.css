@@ -198,3 +198,12 @@ button:hover {
   box-shadow: 0 0.5em 0.5em -0.4em #151b29;
   transform: translateY(-0.25em);
 }
+
+/* Footer Styling */
+
+.container-footer {
+  display: flex;
+  justify-content: center;
+  background-color: #151b29;
+  color: #fff;
+}
