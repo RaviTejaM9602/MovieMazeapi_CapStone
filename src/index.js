@@ -1,10 +1,7 @@
-import "./style.css";
+import './style.css';
 import showCommentPopup from './modules/popUp.js';
 
-
 const List = document.querySelector('#movies');
-const movies_no=10;
-
 
 document.addEventListener('click', (e) => {
   if (e.target.matches('.comment-btn')) {
@@ -12,28 +9,8 @@ document.addEventListener('click', (e) => {
   }
 });
 
-const fetchMovies = async ()=>{
-  for (let i = 1; i <=10; i++) {
-    await getMovie(i);
-  } 
-};
-
- const getMovie = async (id) => {
-   try{
-  const url = `https://api.tvmaze.com/shows/${id}`;
-  const res = await fetch(url);
-   const movie = await res.json();
-   console.log(movie);
-   createMovieCard(movie);
-   }catch (error){ 
-     console.error(error);
-   }
-  }   
-
-fetchMovies();
-
-function createMovieCard(movie){
-List.innerHTML += `<li class="movie">
+function createMovieCard(movie) {
+  List.innerHTML += `<li class="movie">
 <img class="mov-post" src=${movie.image.medium}>
 <div class="mov-detail">
 <p class="mov-name">${movie.name}</p>
@@ -45,3 +22,24 @@ List.innerHTML += `<li class="movie">
 <button type="button" id=${movie.id} class="comment-btn">Comments</button>
 </li>`;
 }
+
+const getMovie = async (id) => {
+  try {
+    const url = `https://api.tvmaze.com/shows/${id}`;
+    const res = await fetch(url);
+    const movie = await res.json();
+    createMovieCard(movie);
+  } catch (error) {
+    alert(error);
+  }
+};
+
+const moviesNo = 10;
+const fetchMovies = async () => {
+  for (let i = 1; i <= moviesNo; i += 1) {
+    // eslint-disable-next-line no-await-in-loop
+    await getMovie(i);
+  }
+};
+
+fetchMovies();
