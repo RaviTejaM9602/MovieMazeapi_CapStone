@@ -1,5 +1,4 @@
 const commentPopup = document.querySelector('.comment-popup');
-
 const commentCounter = (data) => (typeof (data) === 'object' ? data.length : 'invalid');
 
 const commentsApiKey = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/qdmdFHstOSTgqs8wmesu/comments';
