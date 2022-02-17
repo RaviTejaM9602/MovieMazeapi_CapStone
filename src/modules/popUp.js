@@ -80,12 +80,13 @@ const showCommentPopup = async (movieId) => {
   await getMovieData(movieId).then((data) => {
     commentPopup.innerHTML = `<div class="popup">
     <button id="close">&times;</button>
-    <div class="container">     
-        <div class="display">
-          <div class="description">
+    <div class="popUp-container">
+      <div class="container">
+        <div class="display"> 
+           <div class="description">
             <img class="popup-image" src=${data.image.medium} alt="Movie image">
             <h3 class="movie-title">${data.name}</h3>
-          </div>
+           </div>
           <div class="display-detail">
             <h3>More about the Movie</h3>
             <ul class="popup-list">
@@ -94,17 +95,18 @@ const showCommentPopup = async (movieId) => {
              <li><strong>Genres:</strong>${data.genres}</li>               
             </ul>  
            </div>
-        </div>
-      <div class="comment-container">
-        <div class="comment-display">
-          <h3 class='counter'>Comments(<span class="total-comments">0</span>)</h3>
-          <ul class="comments-box">
-          </ul>
-        </div>
-        <div class="comment-box">
-        <div class="add-comment">
-          <h3>Add Comment</h3>
-        </div>
+      </div>
+    </div>
+    <div class="comment-container">
+         <div class="comment-display">
+            <h3 class='counter'>Comments(<span class="total-comments">0</span>)</h3>
+            <ul class="comments-box">
+            </ul>
+          </div>
+      <div class="comment-box">
+          <div class="add-comment">
+             <h3>Add Comment</h3>
+          </div>
         <form class="form">
           <input type="text" name="name" id="name" placeholder="Your name" required>
           <textarea name="description" id="description" cols="30" rows="10"
@@ -112,8 +114,8 @@ const showCommentPopup = async (movieId) => {
           <button id=${movieId} type="submit" class="submit-btn">Comment</button>
         </form>
       </div>
-      </div>
     </div>
+   </div>
   </div>`;
 
     updateCommentCounter(movieId);
