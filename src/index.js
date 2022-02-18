@@ -1,11 +1,18 @@
 import './style.css';
 import showCommentPopup from './modules/popUp.js';
+import { addLikes } from './modules/likes.js';
 
 const List = document.querySelector('#movies');
 
 document.addEventListener('click', (e) => {
   if (e.target.matches('.comment-btn')) {
     showCommentPopup(e.target.id);
+  } else if (e.target.tagName === 'I') {
+    addLikes(e.target.id);
+    const likesNo = e.target.parentNode.querySelector('.total-likes');
+    console.log(likesNo);
+    const newValue = +likesNo.innerHTML + 1;
+    likesNo.innerHTML = newValue;
   }
 });
 
@@ -43,3 +50,4 @@ const fetchMovies = async () => {
 };
 
 fetchMovies();
+
