@@ -15,20 +15,30 @@ export const addLikes = async (id) => {
 
 //  addLikes(10);
 
-const getLikes = async () => {
+export const getLikes = async (id) => {
   const res = await fetch(requestURL);
-  const data = await res.json();
-  //  const arr = data.json()
-  console.log(data);
-};
+  let storedLikes = await res.json();
+  console.log(storedLikes);
+  // for (const likes of storedLikes) {
+  //  if (likes.item_id === id) {
+  //   const MovieLikes = likes.likes;
+  //   console.log(likes.likes)
+  //    return MovieLikes;
+}
 
-getLikes();
+// async function UpdateLikes(){
+//  for (const movie of storedLikes) {
+//    if (movie.item_id === id) {
+//      const MovieLikes = movie.likes;
+//     await getLikes(movie)
+//    }
+//  }
+// }
+getLikes(10);
 
 // export const updateLikes = async (id, display)=>{
 
 // }
-
-
 
 // function testTotalLikes() {
 //   const totLikes= [data.[else.target.id]
