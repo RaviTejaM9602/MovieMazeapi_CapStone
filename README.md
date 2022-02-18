@@ -10,7 +10,7 @@ MovieMaze includes the MovieAPI and Involvement API. You can like Movies and lea
 
 ## Live Link
 
-In the following link, you can view the [PokeDB website](Coming Soon...).
+In the following link, you can view the [MovieMaze website](Coming Soon...).
 
 ## Explanation Video
 
@@ -28,7 +28,7 @@ this a short explaining what we have done on this project.
 
 start by cloning the repository.
 
-`git clone git@github.com:RaviTejaM9602/Pokeapi_CapStone.git`
+`git clone git@github.com:RaviTejaM9602/MovieMazeapi_CapStone.git`
 
 cd to the folder.
 
