@@ -1,10 +1,6 @@
 import './style.css';
-<<<<<<< HEAD
 import { showCommentPopup } from './modules/popUp.js';
-=======
-import showCommentPopup from './modules/popUp.js';
 import { addLikes, fetchLikes } from './modules/likes.js';
->>>>>>> 86a051b26d21d937a03aeb922dcdee784741722c
 
 const List = document.querySelector('#movies');
 
