@@ -1,8 +1,6 @@
 import './style.css';
 import logo from './logo.png';
 
-
-
 const List = document.querySelector('#movies');
 const LogoContainer = document.querySelector("#logo");
 const movies_no=10;
