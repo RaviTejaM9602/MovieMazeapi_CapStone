@@ -1,5 +1,5 @@
 const commentPopup = document.querySelector('.comment-popup');
-const commentCounter = (data) => (typeof (data) === 'object' ? data.length : 'invalid');
+export const commentCounter = (data) => (typeof (data) === 'object' ? data.length : 'invalid');
 
 const commentsApiKey = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/qdmdFHstOSTgqs8wmesu/comments';
 const getMovieComment = async (movieId) => {
@@ -76,7 +76,7 @@ const closeCommentPopup = () => {
   });
 };
 
-const showCommentPopup = async (movieId) => {
+export const showCommentPopup = async (movieId) => {
   await getMovieData(movieId).then((data) => {
     commentPopup.innerHTML = `<div class="popup">
     <button id="close">&times;</button>
@@ -146,5 +146,3 @@ document.addEventListener('click', async (e) => {
     showCommentPopup(e.target.id);
   }
 });
-
-export default { showCommentPopup, commentCounter, getTotalComments };
