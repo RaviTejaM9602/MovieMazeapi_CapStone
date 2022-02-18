@@ -1,17 +1,27 @@
 import './style.css';
-import { get } from 'lodash';
 import showCommentPopup from './modules/popUp.js';
 import { addLikes, getLikes } from './modules/likes.js';
 
 const List = document.querySelector('#movies');
 
+function createMovieCard(movie) {
+  List.innerHTML += `<li class="movie">
+<img class="mov-post" src=${movie.image.medium}>
+<div class="mov-detail">
+<p class="mov-name">${movie.name}</p>
+<div class="likes">
+<h4 class="total-likes" id="likes_${movie.id}">0</h4>
+<i id=${movie.id} class="fas fa-heart"></i>
+</div>
+</div>
+<button type="button" id=${movie.id} class="comment-btn">Comments</button>
+</li>`;
+}
 const getMovie = async (id) => {
   try {
     const url = `https://api.tvmaze.com/shows/${id}`;
-    const res = await fetch(url); console.log(res);
+    const res = await fetch(url);
     const movie = await res.json();
-    // const MovieLikes = await getLikes();
-    // console.log(typeof MovieLikes)
     createMovieCard(movie);
   } catch (error) {
     console.log('error', error);
@@ -28,20 +38,6 @@ const fetchMovies = async () => {
 };
 
 fetchMovies();
-
-function createMovieCard(movie, MovieLikes) {
-  List.innerHTML += `<li class="movie">
-<img class="mov-post" src=${movie.image.medium}>
-<div class="mov-detail">
-<p class="mov-name">${movie.name}</p>
-<div class="likes">
-<h4 class="total-likes" id="likes_${movie.id}">0</h4>
-<i id=${movie.id} class="fas fa-heart"></i>
-</div>
-</div>
-<button type="button" id=${movie.id} class="comment-btn">Comments</button>
-</li>`;
-}
 
 document.addEventListener('click', (e) => {
   if (e.target.matches('.comment-btn')) {
