@@ -17,14 +17,16 @@ export const addLikes = async (id) => {
 
 export const getLikes = async (id) => {
   const res = await fetch(requestURL);
-  let storedLikes = await res.json();
-  console.log(storedLikes);
-  // for (const likes of storedLikes) {
-  //  if (likes.item_id === id) {
-  //   const MovieLikes = likes.likes;
-  //   console.log(likes.likes)
-  //    return MovieLikes;
-}
+  const storedLikes = await res.json();
+  // console.log(storedLikes[id].item_id);
+  for (const likes of storedLikes) {
+    if (parseInt(likes.item_id) === id) {
+    // console.log(likes.item_id,id);
+      const tmp = document.querySelector(`#likes_${id}`);
+      tmp.innerHTML = likes.likes;
+    }
+  }
+};
 
 // async function UpdateLikes(){
 //  for (const movie of storedLikes) {
