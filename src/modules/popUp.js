@@ -74,7 +74,6 @@ const closeCommentPopup = () => {
     commentPopup.innerHTML = '';
     document.body.style.overflow = 'visible';
   });
-};
 
 export const showCommentPopup = async (movieId) => {
   await getMovieData(movieId).then((data) => {
@@ -146,3 +145,4 @@ document.addEventListener('click', async (e) => {
     showCommentPopup(e.target.id);
   }
 });
+};

@@ -1,5 +1,5 @@
 import './style.css';
-import showCommentPopup from './modules/popUp.js';
+import { showCommentPopup } from './modules/popUp.js';
 
 const List = document.querySelector('#movies');
 
