@@ -13,15 +13,19 @@ export const addLikes = async (id) => {
   return response;
 };
 
-export const getLikes = async (id) => {
+export const getLikes = async () => {
   const res = await fetch(requestURL);
   const storedLikes = await res.json();
-  for (const likes of storedLikes) {
+
+  return storedLikes;
+};
+
+export async function fetchLikes(id) {
+  const storedLikes = await getLikes();
+  storedLikes.forEach((likes) => {
     if (parseInt(likes.item_id, 10) === id) {
       const tmp = document.querySelector(`#likes_${id}`);
       tmp.innerHTML = likes.likes;
     }
-  }
-};
-
-getLikes(10);
+  });
+}

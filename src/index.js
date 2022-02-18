@@ -1,6 +1,6 @@
 import './style.css';
 import showCommentPopup from './modules/popUp.js';
-import { addLikes, getLikes } from './modules/likes.js';
+import { addLikes, fetchLikes } from './modules/likes.js';
 
 const List = document.querySelector('#movies');
 
@@ -28,12 +28,11 @@ const getMovie = async (id) => {
   }
 };
 
-const moviesNo = 20;
-const fetchMovies = async () => {
+const moviesNo = 10;
+const fetchMovies = () => {
   for (let i = 1; i <= moviesNo; i += 1) {
-    // eslint-disable-next-line no-await-in-loop
-    await getMovie(i);
-    await getLikes(i);
+    getMovie(i);
+    fetchLikes(i);
   }
 };
 
