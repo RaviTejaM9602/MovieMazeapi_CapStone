@@ -35,7 +35,6 @@ const fetchMovies = () => {
     fetchLikes(i);
   }
 };
-
 fetchMovies();
 
 document.addEventListener('click', (e) => {
