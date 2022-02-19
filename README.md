@@ -6,16 +6,18 @@
 
 MovieMaze includes the MovieAPI and Involvement API. You can like Movies and leave the comment on their page, check their type and base stats.
 
-![screenshot](Coming Soon.....)
+![screenshot1](./images/main.png)
+
+![screenshot1](./images/comment.png)
 
 ## Live Link
 
-In the following link, you can view the [MovieMaze website](Coming Soon...).
+In the following link, you can view the [MovieMaze website](https://ravitejam9602.github.io/MovieMazeapi_CapStone/).
 
 ## Explanation Video
 
 this a short explaining what we have done on this project.
-[video link](Coming Soon...)
+[video link](https://www.loom.com/share/0891f696165a47df8fc09a62cadd0ab6)
 
 ## Built With
 

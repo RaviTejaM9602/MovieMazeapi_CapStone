@@ -7,11 +7,13 @@
     "test": "jest",
     "watch": "webpack --watch",
     "start": "webpack serve --open",
-    "build": "webpack"
+    "build": "webpack",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/myelin0/create-webpack.git"
+    "url": "git+https://github.com/RaviTejaM9602/MovieMazeapi_CapStone.git"
   },
   "keywords": [],
   "author": "",
@@ -19,7 +21,7 @@
   "bugs": {
     "url": "https://github.com/myelin0/create-webpack/issues"
   },
-  "homepage": "https://github.com/myelin0/create-webpack#readme",
+  "homepage": "http://RaviTejaM9602.github.io/MovieMazeapi_CapStone",
   "devDependencies": {
     "@babel/core": "^7.17.5",
     "@babel/plugin-transform-modules-commonjs": "^7.16.8",
@@ -31,6 +33,7 @@
     "eslint": "^7.32.0",
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-plugin-import": "^2.25.4",
+    "gh-pages": "^3.2.3",
     "hint": "^6.1.9",
     "html-webpack-plugin": "^5.5.0",
     "jest": "^27.5.1",
