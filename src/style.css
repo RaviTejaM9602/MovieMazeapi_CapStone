@@ -11,6 +11,45 @@ body {
   font-size: 16px;
 }
 
+.nav-bar {
+  display: flex;
+  justify-content: flex-start;
+}
+
+h1 {
+  position: relative;
+  color: white;
+  letter-spacing: 0.05em;
+  left: 20px;
+  top: 5px;
+}
+
+h1::before {
+  content: "MovieMaze";
+  position: absolute;
+  display: inline;
+  top: 0;
+  left: 0;
+  color: #2ed573;
+  border-right: 4px solid #2ed573;
+  -webkit-animation: slide 2s linear infinite;
+  overflow: hidden;
+}
+
+@keyframes slide {
+  0% {
+    width: 0%;
+  }
+
+  50% {
+    width: 100%;
+  }
+
+  100% {
+    width: 0%;
+  }
+}
+
 h3 {
   display: inline-block;
 }
