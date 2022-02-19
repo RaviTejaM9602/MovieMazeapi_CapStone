@@ -17,7 +17,7 @@ In the following link, you can view the [MovieMaze website](https://ravitejam960
 ## Explanation Video
 
 this a short explaining what we have done on this project.
-[video link](https://www.loom.com/share/0891f696165a47df8fc09a62cadd0ab6)
+[video link](https://www.loom.com/share/00f607bac49e499197e65f47e9db0549)
 
 ## Built With
 
