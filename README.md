@@ -1,6 +1,6 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# Pokeapi_CapStone
+# MovieMaze_CapStone
 
 > This project has a list of pokemons you can Like and Comment.
 
