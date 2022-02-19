@@ -1,5 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
 body {
   font-family: 'Roboto', sans-serif;
   font-size: 16px;
@@ -23,40 +29,157 @@ header{
 .container-footer p{
   width: 95%;
   margin: auto;
-  color: rgb(72, 46, 218);
-  padding: 2% 0;
+  background-color: rgba(74, 73, 108, 0.7);
+  display: none;
 }
 
-#movies{
+.popup {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  padding: 20px;
+  background: rgb(128, 155, 174);
+  border-radius: 10px;
+}
+
+.fa {
+  font-size: 2em;
+}
+
+#close {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background: none;
+  font-size: 1.5rem;
+  font-weight: bold;
+  float: right;
+  align-self: flex-end;
+}
+
+.popUp-container {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  justify-content: space-between;
+}
+
+.display {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 40%;
+  padding: 5px;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  gap: 5px;
+}
+
+.comment-container {
+  width: 50%;
+}
+
+.comment-box {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin: 10px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 85%;
+}
+
+input,
+textarea {
+  padding: 8px;
+}
+
+.submit-btn {
+  width: auto;
+  font-size: 16px;
+  letter-spacing: 2px;
+  font-weight: 400 !important;
+  background-color: rgb(182, 68, 119);
+  color: #fff;
+  padding: 10px;
+  border: none;
+}
+
+.comments-box {
   list-style: none;
-  display:flex;
+  margin: 5px 0;
+  padding: 0;
+}
+
+.comments-list {
+  list-style: none;
+  background: whitesmoke;
+  width: 100%;
+}
+
+.display-detail {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.popup-list {
+  padding: 0;
+}
+
+.popup-list p::first-letter {
+  font-size: 3rem;
+  float: left;
+  margin-right: 10px;
+}
+
+li {
+  margin-bottom: 30px;
+  padding: 20px;
+  background: whitesmoke;
+  width: 270px;
+  display: flex;
+  flex-direction: column;
+}
+
+.popup-list li {
+  list-style: none;
+  background: whitesmoke;
+}
+
+/* End of comment popup */
+
+#movies {
+  list-style: none;
+  display: flex;
   justify-content: center;
   flex-wrap: wrap;
 }
 
-li{
-  margin-bottom: 30px;
-    padding: 20px;
-    background: whitesmoke;
-    width: 270px;
-    display: flex;
-    flex-direction: column;
-}
-
-.likes{
+.likes {
   display: flex;
   justify-content: flex-end;
-  gap:0.5rem;
+  gap: 0.5rem;
   align-items: baseline;
 }
 
-.mov-detail{
+.mov-detail {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
 }
 
-.comments{
+.comment-btn {
   color: #151b29;
   border: 2px solid;
   padding: 1em 2em;
@@ -65,11 +188,18 @@ li{
   cursor: pointer;
 }
 
-button:hover {
+.comment-btn:hover {
   border-color: #151b29;
   color: rgb(94, 10, 10);
-  box-shadow:0 0.5em 0.5em -0.4em #151b29;
+  box-shadow: 0 0.5em 0.5em -0.4em #151b29;
   transform: translateY(-0.25em);
 }
 
+/* Footer Styling */
 
+.container-footer {
+  display: flex;
+  justify-content: center;
+  background-color: #151b29;
+  color: #fff;
+}

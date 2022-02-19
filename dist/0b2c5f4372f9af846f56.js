@@ -1,11 +1,44 @@
 import './style.css';
-import { showCommentPopup } from './modules/popUp.js';
+import logo from './logo.png';
+
+const List = document.querySelector('#movies');
+const LogoContainer = document.querySelector("#logo");
+const movies_no=10;
+
+LogoContainer.innerHTML = `<a href="#"><img class="logoImg" src="${logo}" alt="Logo" /></a>`;
+
+const fetchMovies = async ()=>{
+  for (let i = 1; i <=10; i++) {
+    await getMovie(i);
+  } 
+};
+
+ const getMovie = async (id) => {
+   try{
+  const url = `https://api.tvmaze.com/shows/${id}`;
+  const res = await fetch(url);
+   const movie = await res.json();
+   console.log(movie);
+   createMovieCard(movie);
+   }catch (error){ 
+     console.error(error);
+   }
+  }   
+
+fetchMovies();
+
+function createMovieCard(movie){
+List.innerHTML += `<li class="movie">
+
+import showCommentPopup from './modules/popUp.js';
 import { addLikes, fetchLikes } from './modules/likes.js';
+
 
 const List = document.querySelector('#movies');
 
 function createMovieCard(movie) {
   List.innerHTML += `<li class="movie">
+
 <img class="mov-post" src=${movie.image.medium}>
 <div class="mov-detail">
 <p class="mov-name">${movie.name}</p>

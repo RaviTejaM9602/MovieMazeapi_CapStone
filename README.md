@@ -1,16 +1,16 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# Pokeapi_CapStone
+# MovieMazeApi_Project
 
-> This project has a list of pokemons you can Like and Comment.
+> This project has a list of all Movies where you can Like and Comment.
 
-PokeDB includes the PokeAPI and Involvement API. You can like pokemons and comment on their page, check their type and base stats.
+MovieMaze includes the MovieAPI and Involvement API. You can like Movies and leave the comment on their page, check their type and base stats.
 
 ![screenshot](Coming Soon.....)
 
 ## Live Link
 
-In the following link, you can view the [PokeDB website](Coming Soon...).
+In the following link, you can view the [MovieMaze website](Coming Soon...).
 
 ## Explanation Video
 
@@ -28,11 +28,11 @@ this a short explaining what we have done on this project.
 
 start by cloning the repository.
 
-`git clone git@github.com:RaviTejaM9602/Pokeapi_CapStone.git`
+`git clone git@github.com:RaviTejaM9602/MovieMazeapi_CapStone.git`
 
 cd to the folder.
 
-`cd Pokeapi`
+`cd MovieMazeApi`
 
 install all the dependencies.
 
@@ -72,7 +72,7 @@ Feel free to check the [issues page](../../issues/).
 
 ## Acknowledgments
 
-In this project we used the [Poke API](https://www.notion.so/Leaderboard-API-service-24c0c3c116974ac49488d4eb0267ade3) and [Involvement API](https://www.notion.so/Involvement-API-869e60b5ad104603aa6db59e08150270), please check it out! 😊
+In this project we used the [Movie_Maze_API](https://api.tvmaze.com/shows) and [Involvement API](https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/qdmdFHstOSTgqs8wmesu/comments), please check it out! 😊
 
 ## Show your support
 
