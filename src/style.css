@@ -19,6 +19,14 @@ body {
   background-color: black;
 }
 
+li {
+  margin-bottom: 30px;
+  padding: 20px;
+  width: 270px;
+  display: flex;
+  flex-direction: column;
+}
+
 h1 {
   position: relative;
   color: white;
@@ -197,14 +205,6 @@ textarea {
   font-size: 3rem;
   float: left;
   margin-right: 10px;
-}
-
-li {
-  margin-bottom: 30px;
-  padding: 20px;
-  width: 270px;
-  display: flex;
-  flex-direction: column;
 }
 
 .popup-list li {
